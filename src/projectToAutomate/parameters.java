@@ -1,4 +1,4 @@
-package projectToTest;
+package projectToAutomate;
 
 import java.util.Random;
 import org.openqa.selenium.WebDriver;

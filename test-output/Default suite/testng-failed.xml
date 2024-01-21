@@ -7,7 +7,7 @@
         <methods>
           <include name="setup"/>
           <include name="postTest"/>
-          <include name="addFirstThreeItem"/>
+          <include name="loginTest"/>
         </methods>
       </class> <!-- projectToTest.theTestCases -->
     </classes>

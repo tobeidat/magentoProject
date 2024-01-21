@@ -1,4 +1,4 @@
-package projectToTest;
+package projectToAutomate;
 
 import java.util.List;
 import org.openqa.selenium.By;
@@ -128,8 +128,9 @@ public class theTestCases extends parameters {
 
 		}
 
-		String totalPrice = driver.findElement(By.cssSelector(".amount.price-container")).getText();
-		Assert.assertEquals(totalPrice, "$70.00");
+		double totalPrice = Double
+				.parseDouble(driver.findElement(By.cssSelector(".amount.price-container")).getText().replace("$", ""));
+		Assert.assertEquals(totalPrice, sum);
 
 	}
 
