@@ -12,7 +12,8 @@ public class theTestCases extends parameters {
 
 	@BeforeTest
 	public void setup() {
-		theBeginning();
+		driver.get(websitePage);
+		driver.manage().window().maximize();
 	}
 
 	@Test(priority = 1)
@@ -56,7 +57,6 @@ public class theTestCases extends parameters {
 
 	@Test(priority = 4)
 	public void addFirstThreeItem() throws InterruptedException {
-		driver.get(topLink);
 		driver.get(teesLink);
 		Thread.sleep(2000);
 		WebElement productContiner = driver.findElement(By.className("product-items"));
@@ -136,7 +136,6 @@ public class theTestCases extends parameters {
 
 	@Test(priority = 5)
 	public void addRandomItem() throws InterruptedException {
-		driver.get(men_TopLink);
 		driver.get(teesLink_Men);
 		Thread.sleep(1000);
 

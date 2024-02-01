@@ -22,9 +22,4 @@ public class parameters {
 	String men_TopLink = "https://magento.softwaretestingboard.com/men/tops-men.html";
 	String teesLink_Men = "https://magento.softwaretestingboard.com/men/tops-men/tees-men.html";
 
-	public void theBeginning() {
-		driver.get(websitePage);
-		driver.manage().window().maximize();
-
-	}
 }
