@@ -63,59 +63,71 @@ public class theTestCases extends parameters {
 		WebElement firstItem = productContiner.findElement(By.cssSelector("div[class='column main'] li:nth-child(1)"));
 		firstItem.click();
 		Thread.sleep(2000);
+
 		WebElement sizeContiner = driver.findElement(By.className("swatch-attribute-options"));
 		List<WebElement> allSizesValues = sizeContiner.findElements(By.tagName("div"));
 		int randomSizeIndex = rand.nextInt(allSizesValues.size());
 		allSizesValues.get(randomSizeIndex).click();
 		Thread.sleep(2000);
+
 		WebElement colorContiner = driver
 				.findElement(By.cssSelector("div[class='swatch-attribute color'] div[role='listbox']"));
 		List<WebElement> allColorsValues = colorContiner.findElements(By.tagName("div"));
 		int RandomColorIndex = rand.nextInt(allColorsValues.size());
 		allColorsValues.get(RandomColorIndex).click();
+
 		WebElement addToCartButton = driver.findElement(By.xpath("//button[@id='product-addtocart-button']"));
 		addToCartButton.click();
 		Thread.sleep(1000);
+
 		driver.get(teesLink);
 		WebElement productContinerItem2 = driver.findElement(By.className("product-items"));
 		WebElement seconedItem = productContinerItem2
 				.findElement(By.cssSelector("div[class='column main'] li:nth-child(2)"));
 		seconedItem.click();
 		Thread.sleep(2000);
+
 		WebElement sizeContiner2 = driver.findElement(By.className("swatch-attribute-options"));
 		List<WebElement> allSizeValues2 = sizeContiner2.findElements(By.tagName("div"));
 		int randomSizeSeconedEle = rand.nextInt(allSizeValues2.size());
 		allSizeValues2.get(randomSizeSeconedEle).click();
 		Thread.sleep(2000);
+
 		WebElement colorContiner2 = driver
 				.findElement(By.cssSelector("div[class='swatch-attribute color'] div[role='listbox']"));
 		List<WebElement> allColorsValues2 = colorContiner2.findElements(By.tagName("div"));
 		int RandomColorIndex2 = rand.nextInt(allColorsValues2.size());
 		allColorsValues2.get(RandomColorIndex2).click();
+
 		WebElement addToCartButton2 = driver.findElement(By.xpath("//button[@id='product-addtocart-button']"));
 		addToCartButton2.click();
 		Thread.sleep(1000);
+
 		driver.get(teesLink);
 		WebElement productContinerItem3 = driver.findElement(By.className("product-items"));
 		WebElement thirdItem = productContinerItem3
 				.findElement(By.cssSelector("div[class='column main'] li:nth-child(3)"));
 		thirdItem.click();
 		Thread.sleep(2000);
+
 		WebElement sizeConti = driver
 				.findElement(By.cssSelector("div[class='swatch-attribute size'] div[role='listbox']"));
 		List<WebElement> allSizes = sizeConti.findElements(By.tagName("div"));
 		int randomNumber = rand.nextInt(allSizes.size());
 		allSizes.get(randomNumber).click();
 		Thread.sleep(2000);
+
 		WebElement colorConti = driver
 				.findElement(By.cssSelector("div[class='swatch-attribute color'] div[role='listbox']"));
 		List<WebElement> allColors = colorConti.findElements(By.tagName("div"));
 		int RandomColors = rand.nextInt(allColors.size());
 		allColors.get(RandomColors).click();
 		Thread.sleep(3000);
+
 		WebElement addToCart = driver.findElement(By.xpath("//button[@id='product-addtocart-button']"));
 		addToCart.click();
 		Thread.sleep(7000);
+
 		String theCart = driver.findElement(By.className("showcart")).getText();
 		Assert.assertEquals(theCart.contains("3"), true);
 		WebElement cartElement = driver.findElement(By.className("showcart"));
