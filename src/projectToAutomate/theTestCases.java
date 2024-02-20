@@ -1,5 +1,6 @@
 package projectToAutomate;
 
+import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,16 +21,22 @@ public class theTestCases extends parameters {
 	public void sinpupTest() {
 		WebElement createAccountButton = driver.findElement(By.linkText("Create an Account"));
 		createAccountButton.click();
+
 		WebElement firstNameLabel = driver.findElement(By.id("firstname"));
 		firstNameLabel.sendKeys(firstNames[randomIndex]);
+
 		WebElement lastNameLabel = driver.findElement(By.id("lastname"));
 		lastNameLabel.sendKeys(lastNames[randomIndex2]);
+
 		WebElement email = driver.findElement(By.id("email_address"));
 		email.sendKeys(loginEmail);
+
 		WebElement password = driver.findElement(By.id("password"));
 		password.sendKeys(loginPassword);
+
 		WebElement confirmPasswordElement = driver.findElement(By.id("password-confirmation"));
 		confirmPasswordElement.sendKeys(loginPassword);
+
 		WebElement createAnAccountButton = driver.findElement(By.cssSelector("button[title='Create an Account']"));
 		createAnAccountButton.click();
 
@@ -65,7 +72,7 @@ public class theTestCases extends parameters {
 		for (int i = 0; i < 3; i++) {
 			allItems.get(i).click();
 
-			Thread.sleep(2000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
 			WebElement sizeContiner = driver
 					.findElement(By.cssSelector("div[class='swatch-attribute size'] div[role='listbox']"));
@@ -79,10 +86,11 @@ public class theTestCases extends parameters {
 			List<WebElement> allColorsValues = colorContiner.findElements(By.tagName("div"));
 			int RandomColorIndex = rand.nextInt(allColorsValues.size());
 			allColorsValues.get(RandomColorIndex).click();
+			Thread.sleep(2000);
 
 			WebElement addToCartButton = driver.findElement(By.xpath("//button[@id='product-addtocart-button']"));
 			addToCartButton.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			driver.get(teesLink);
 			productContiner = driver.findElement(By.className("product-items"));
 			allItems = productContiner.findElements(By.tagName("li"));
@@ -111,7 +119,7 @@ public class theTestCases extends parameters {
 	@Test(priority = 5)
 	public void addRandomItem() throws InterruptedException {
 		driver.get(teesLink_Men);
-		Thread.sleep(1000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 
 		WebElement itemsContiner = driver.findElement(By.cssSelector(".products.wrapper.grid.products-grid"));
 		List<WebElement> allitems = itemsContiner.findElements(By.tagName("li"));
@@ -126,11 +134,13 @@ public class theTestCases extends parameters {
 		int randomIndex = rand.nextInt(AllSized.size());
 		AllSized.get(randomIndex).click();
 		Thread.sleep(2000);
+
 		WebElement colorConti = driver
 				.findElement(By.cssSelector("div[class='swatch-attribute color'] div[role='listbox']"));
 		List<WebElement> allColors = colorConti.findElements(By.tagName("div"));
 		int RandomColors = rand.nextInt(allColors.size());
 		allColors.get(RandomColors).click();
+
 		WebElement addToCart = driver.findElement(By.xpath("//button[@id='product-addtocart-button']"));
 		addToCart.click();
 		Thread.sleep(3000);
